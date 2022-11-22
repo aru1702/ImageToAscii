@@ -9,7 +9,7 @@ ASCII_CHARS = ["@", "&", "#", "$", "B", "%", "G", "P", "5", "Y", "J", "?", "7", 
 # resize image
 def resize_image(image, new_w=100):
     w, h = image.size
-    ratio = h / w
+    ratio = h / w / 2.00
     new_h = int(new_w * ratio)
     resized_img = image.resize((new_w, new_h))
     return(resized_img)
@@ -34,6 +34,7 @@ def main(new_w=100):
         image = PIL.Image.open(path)
     except:
         print(path, "is not valid! Please try again.")
+        return
 
     w = input("Enter image width in pixel: ")
     if int(w) > 1:
@@ -50,4 +51,4 @@ def main(new_w=100):
 
     print(ascii_img)
 
-main()
+# main()
