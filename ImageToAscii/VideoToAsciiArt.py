@@ -5,7 +5,6 @@ import PIL
 from os import system, name
 import time, sys
 
-
 # define our clear function
 # src: https://www.geeksforgeeks.org/clear-screen-python/
 def clear():
@@ -72,9 +71,6 @@ def main():
 
         # print into terminal
         print(ascii_img)
-
-        # sleep
-        # time.sleep(0.025)
 
         # clear screen
         retur()
