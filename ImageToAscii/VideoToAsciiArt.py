@@ -76,7 +76,7 @@ def main():
 
         # clear screen
         retur()
-        # clear()
+        clear()
 
         if with_time:
             time.sleep(sleep_time_in_sec)
