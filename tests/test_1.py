@@ -1,7 +1,6 @@
 import unittest
 from unittest.mock import patch
 from ImageToAscii.ImageToAscii import main as ITAMain
-from ImageToAscii.VideoFrameExtract import main as VFEMain
 
 
 class TestImageToAscii(unittest.TestCase):
