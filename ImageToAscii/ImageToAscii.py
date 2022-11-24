@@ -28,17 +28,25 @@ def px_to_ascii(image):
     return(chs)
 
 # main
-def main(new_w=100):
+def main(new_w=100, raw_path=''):
 
-    # input from user
-    path = input("Enter the image path: ")
+    if raw_path == '':
+        # input from user
+        path = input("Enter the image path: ")
+    else:
+        path = raw_path
+    
     try:
         image = PIL.Image.open(path)
     except:
         print(path, "is not valid! Please try again.")
         sys.exit()
 
-    w = input("Enter image width in pixel: ")
+    if new_w < 1:
+        w = input("Enter image width in pixel: ")
+    else:
+        w = str(new_w)
+
     if int(w) > 1:
         new_w = int(w)
 
@@ -52,5 +60,7 @@ def main(new_w=100):
         )
 
     print(ascii_img)
+
+    return ascii_img
 
 # main()
