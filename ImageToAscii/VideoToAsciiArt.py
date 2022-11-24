@@ -3,7 +3,7 @@ import VideoFrameExtract as VFE
 import cv2
 import PIL
 from os import system, name
-import time
+import time, sys
 
 # define our clear function
 # src: https://www.geeksforgeeks.org/clear-screen-python/
@@ -16,6 +16,9 @@ def clear():
     else:
         _ = system('clear')
 
+def retur():
+    print("\r", end='', flush=True)
+
 def main():
     # video path
     path = input("Enter video path: ")
@@ -23,7 +26,7 @@ def main():
         video = cv2.VideoCapture(path)
     except:
         print("Error opening video stream")
-        return
+        sys.exit()
     
     # desire image size
     w = input("Enter image width in pixel: ")
@@ -31,7 +34,23 @@ def main():
         new_w = int(w)
     else:
         print("Minimum width is 1")
-        return
+        sys.exit()
+
+    raw_w = video.get(3)
+    raw_h = video.get(4)
+    
+    new_h = (raw_h / raw_w) * new_w * 0.5
+    new_h_h = int(new_h - 1)
+    new_w_w = int(new_w + 2)
+
+    cmd = 'mode con: cols={} lines={}'.format(new_w_w, new_h_h)
+    system(cmd)
+   
+    with_time = True
+    sleep_time_in_sec = 0.005
+
+    print(cmd)
+    print(raw_h, raw_w)
 
     while(True):
         # get image from video
@@ -53,11 +72,12 @@ def main():
         # print into terminal
         print(ascii_img)
 
-        # sleep
-        time.sleep(0.025)
-
         # clear screen
-        clear()
+        retur()
+        # clear()
+
+        if with_time:
+            time.sleep(sleep_time_in_sec)
 
         # break video in the middle
         # if cv2.waitKey(1) & 0xFF == ord('q'):
