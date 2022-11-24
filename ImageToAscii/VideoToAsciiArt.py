@@ -27,7 +27,7 @@ def main():
         video = cv2.VideoCapture(path)
     except:
         print("Error opening video stream")
-        return
+        sys.exit()
     
     # desire image size
     w = input("Enter image width in pixel: ")
