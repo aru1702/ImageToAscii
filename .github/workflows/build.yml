@@ -18,8 +18,11 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python }}
-      - name: Install tox
-        run: pip install tox
+      - name: Install dependencies
+        run:
+          pip install tox
+          pip install Pillow
+          python -m pip install --upgrade Pillow
       - name: Run tox
         run: tox -e py
       - name: SonarCloud Scan
