@@ -3,6 +3,7 @@ import VideoFrameExtract as VFE
 import cv2
 import PIL
 from os import system, name
+import time
 
 # define our clear function
 # src: https://www.geeksforgeeks.org/clear-screen-python/
@@ -52,11 +53,14 @@ def main():
         # print into terminal
         print(ascii_img)
 
+        # sleep
+        time.sleep(0.025)
+
         # clear screen
         clear()
 
         # break video in the middle
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
+        # if cv2.waitKey(1) & 0xFF == ord('q'):
+        #     break
 
 main()
