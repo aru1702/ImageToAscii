@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - update-mac
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
