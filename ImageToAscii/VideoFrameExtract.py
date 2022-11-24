@@ -1,5 +1,7 @@
 # src: https://www.youtube.com/watch?v=Ay6Nlb3KJog
 import cv2
+import sys
+
 
 # extract video per frame from cv2
 def video_to_frame(video):
@@ -16,7 +18,7 @@ def main():
         video = cv2.VideoCapture(path)
     except:
         print("Error opening video stream")
-        return
+        sys.exit()
 
     while(True):
         # get image from video

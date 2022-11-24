@@ -1,5 +1,7 @@
 # src: https://www.youtube.com/watch?v=v_raWlX7tZY
 import PIL.Image
+import sys
+
 
 # ascii character list
 # the more to the right, the more light intensity
@@ -34,7 +36,7 @@ def main(new_w=100):
         image = PIL.Image.open(path)
     except:
         print(path, "is not valid! Please try again.")
-        return
+        sys.exit()
 
     w = input("Enter image width in pixel: ")
     if int(w) > 1:

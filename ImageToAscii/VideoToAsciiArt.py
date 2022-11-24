@@ -18,8 +18,6 @@ def clear():
         _ = system('clear')
 
 def retur():
-    # print('\r')
-    # sys.stdout.flush()
     print("\r", end='', flush=True)
 
 def main():
@@ -37,7 +35,7 @@ def main():
         new_w = int(w)
     else:
         print("Minimum width is 1")
-        return
+        sys.exit()
 
     raw_w = video.get(3)
     raw_h = video.get(4)
