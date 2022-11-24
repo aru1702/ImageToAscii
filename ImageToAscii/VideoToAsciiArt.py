@@ -76,7 +76,7 @@ def main():
         print(ascii_img)
 
         # sleep
-        time.sleep(0.025)
+        # time.sleep(0.025)
 
         # clear screen
         retur()
